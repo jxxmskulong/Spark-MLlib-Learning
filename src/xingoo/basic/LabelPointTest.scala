@@ -1,6 +1,6 @@
 package xingoo.basic
 
-import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.linalg.{SparseVector, Vectors}
 import org.apache.spark.mllib.regression.LabeledPoint
 
 /**
@@ -23,5 +23,13 @@ object LabelPointTest {
     println(vsLable.label)
 
     println(vsLable.features(2))
+    println("~~~~~~~~~")
+    val vs1 = new SparseVector(1,Array(1),Array(1))
+    val vs2 = new SparseVector(2,Array(1,2),Array(2,3))
+    val vs3 = vs1.indices ++ vs2.indices
+    val vs4 = vs1.values ++ vs2.values
+    val sp = new SparseVector(vs3.size+vs4.size,vs3,vs4)
+    vs3.foreach(println(_))
+    println(sp)
   }
 }
