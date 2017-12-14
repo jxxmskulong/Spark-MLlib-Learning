@@ -15,3 +15,126 @@
 # Binarizer
 
 用于处理一系列的值，通过阈值判断值为0还是1。
+
+# pca 
+
+主成分分析，这个内容很多，单独去研究吧。
+
+http://www.jianshu.com/p/85df3a5e2eb4
+
+# ploynomial expansion....没理解
+
+多项式展开、特征扩展、多项式回归
+http://blog.csdn.net/kwame211/article/details/78109254
+
+# dct, discrete cosine transform ....没理解
+
+离散余弦变换 与 傅立叶 有关系，属于图像领域的应用
+
+# stringindexer
+
+stringindexer用于给一列的字符串，转换成index标示。索引是从[0,num)，并且按照频率从排序，频率最高的为0。
+没有出现过的label都会放入num位置的索引中。如果输入是数字，那么会先转换成字符串，再进行索引。
+
+对于未出现过的label，有三种处理方式：
+
+- 抛出异常
+- 跳过忽略
+- 把它放入num所在的索引位置
+
+# indexTostring
+
+stringindexer会把string和index的关系存储到Model里面，indextostring就是根据这个labels关联回来原来的string
+
+# onehot encoder
+
+onehot可以生成哑变量，即每个独立不重复的n个数，可以用n-1维的向量来表示，每一位为1代表一个数，全为0也是一个数，
+
+# vectorindexer....没理解
+
+这个真是没理解....
+
+# interaction....没理解
+
+像是两个向量的乘法....没理解
+
+# normalizer....没理解
+
+标准化，需要设置参数p, p-norm,默认是2。
+
+http://blog.csdn.net/pipisorry/article/details/52247379
+
+# StandardScaler....没理解
+
+标准化，需要两个参数：
+
+- withStd，默认是为true。
+- withMean，默认是false。
+
+# MinMaxScaler 最大最小值标准化
+
+最大最小值的归一化，一般范围都是[0,1].需要两个参数：
+- min，默认是0。
+- max，默认是1
+
+# maxabsscaler 绝对值最大标准化
+
+每一个特征，除以最大的绝对值，获得[-1,1]之间的数据。
+注意是vector的每一列，分别计算。
+
+# Bucketzier 
+
+bucketizer，根据用户指定的范围区间分桶。需要指定一个参数，splits:
+
+splits是一端连续的数值数组，通过指定n+1个数，可以把数据分成n个桶。每个桶的范围都是[x,y)。最小值和最大值必须指定，如果不确定，可以是
+Double.NegativeInfinity，Double.PositiveInfinity，如果不指定会抛出异常。
+
+指定的数值，必须是严格按照 s0<s1<s2<...<sn
+
+# ElementwiseProduct
+
+对每个元素乘以一个权重的值，对向量逐个进行缩放。感觉就是个点积啊，不知道跟阿达玛积有什么关系。
+
+hadamard product 阿达玛积
+
+# SQLTransformer
+
+支持基于sql进行数据转换, 支持类似下面的预发：
+
+- SELECT a, a + b AS a_b FROM __THIS__
+- SELECT a, SQRT(b) AS b_sqrt FROM __THIS__ where a > 5
+- SELECT a, b, SUM(c) AS c_sum FROM __THIS__ GROUP BY a, b
+
+可以支持与其他的表关联！给力哇！
+
+# VectorAssembler 
+
+vector组合，在逻辑回归或者决策树中，适合把旧的特征与新生成的特征相组合。
+输入的列支持数值型、布尔型、向量型，truefalse会被转换成1和0。
+
+# quantileDiscretizer 分位数分桶
+
+作用跟bucketizer差不多，也是分桶，只不过不需要手动指定每个区间／
+
+原理是，首先获得所有的数据数组：
+[0,1,2,3,4]
+然后计算分位数：
+[0,2,4]
+然后最小值和最大值替换:
+[-inf,2,inf]
+然后按照bucketizer的思路，转换值
+
+
+http://blog.csdn.net/nchu2020/article/details/53192686
+
+分位数：
+中位数：
+四分位数
+
+# imputer 纠错器
+
+针对那些为空的值，可以给设置一些默认的值.
+
+- missingValue可以设置针对哪个值进行纠错
+- setstrategy mean代表平均值，median代表中位数
+
