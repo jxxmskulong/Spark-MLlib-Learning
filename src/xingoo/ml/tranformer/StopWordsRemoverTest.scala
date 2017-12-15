@@ -11,7 +11,7 @@ object StopWordsRemoverTest {
     val remover = new StopWordsRemover()
       .setInputCol("raw")
       .setOutputCol("filtered")
-      .setStopWords(Array("你","我"))//添加自定义停顿词，默认为空
+      .setStopWords(Array("和","并且"))//添加自定义停顿词，默认为空
       .setCaseSensitive(false)//是否区分大小写，默认不区分大小写
 
     /**
@@ -23,7 +23,7 @@ object StopWordsRemoverTest {
     val dataSet = spark.createDataFrame(Seq(
       (0, Seq("I", "saw", "the", "red", "balloon")),
       (1, Seq("Mary", "had", "a", "little", "lamb")),
-      (2, Seq("你","在","哪里"))
+      (2, Seq("你","和","我","并且","哪里"))
     )).toDF("id", "raw")
 
     remover.transform(dataSet).show(false)

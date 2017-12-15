@@ -15,7 +15,7 @@ object VectorIndexerTest {
     val indexer = new VectorIndexer()
       .setInputCol("features")
       .setOutputCol("indexed")
-      .setMaxCategories(2)
+      .setMaxCategories(4)
 
     val indexerModel = indexer.fit(data)
 
@@ -25,6 +25,6 @@ object VectorIndexerTest {
 
     // Create new column "indexed" with categorical values transformed to indices
     val indexedData = indexerModel.transform(data)
-    indexedData.show()
+    indexedData.show(false)
   }
 }

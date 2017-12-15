@@ -15,8 +15,8 @@ object StandardScalerTest {
     val scaler = new StandardScaler()
       .setInputCol("features")
       .setOutputCol("scaledFeatures")
-      .setWithStd(true)
-      .setWithMean(false)
+      .setWithStd(false)
+      .setWithMean(true)
 
     // Compute summary statistics by fitting the StandardScaler.
     val scalerModel = scaler.fit(data)

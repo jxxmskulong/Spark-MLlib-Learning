@@ -31,8 +31,9 @@ object InteractionTest {
     val assembled2 = assembler2.transform(assembled1).select("id1", "vec1", "vec2")
 
     val interaction = new Interaction()
-      .setInputCols(Array("id1", "vec1", "vec2"))
+      .setInputCols(Array("vec1", "vec2"))
       .setOutputCol("interactedCol")
+
 
     val interacted = interaction.transform(assembled2)
 

@@ -50,26 +50,44 @@ stringindexer会把string和index的关系存储到Model里面，indextostring�
 
 onehot可以生成哑变量，即每个独立不重复的n个数，可以用n-1维的向量来表示，每一位为1代表一个数，全为0也是一个数，
 
-# vectorindexer....没理解
+# vectorindexer
 
-这个真是没理解....
+这个可以自动识别那些是分类特征，即不同的值比较少的。
 
-# interaction....没理解
+用户可以通过maxcategories设置目录特征不同的值的阈值，小于这个值的特征都会被当作是目录特征，然后转变成0开始的索引。
 
-像是两个向量的乘法....没理解
+# interaction
 
-# normalizer....没理解
+向量乘法，类似于r-formular里面的 a:b
 
-标准化，需要设置参数p, p-norm,默认是2。
+# normalizer
+
+标准化,范数，需要设置参数p, p-norm,默认是2。也叫做正则化
 
 http://blog.csdn.net/pipisorry/article/details/52247379
 
-# StandardScaler....没理解
+向量的范数可以参考：
 
-标准化，需要两个参数：
+http://blog.csdn.net/wangpei1949/article/details/53150089
+
+# StandardScaler
+
+标准化，需要两个参数, 平均差 或者 标准差
 
 - withStd，默认是为true。
 - withMean，默认是false。
+
+对一列的数值去做相应的标准化，比如如果只是做平均值的标准化，会挨个元素遍历，元素值-这一列对应的平均值，即
+
+[
+1,
+2,
+3
+]
+平均值为2，计算后为
+-1,
+0,
+1
 
 # MinMaxScaler 最大最小值标准化
 

@@ -25,7 +25,7 @@ object TFIDFTest {
       .setBinary(true)//词频数量是否都为1
 
     val featurizedData = hashingTF.transform(wordsData)
-    featurizedData.show()
+    featurizedData.show(false)
 
     // alternatively, CountVectorizer can also be used to get term frequency vectors
 
@@ -36,6 +36,6 @@ object TFIDFTest {
 
     val rescaledData = idfModel.transform(featurizedData)
     val result = rescaledData.select("label", "features")
-    result.show()
+    result.show(false)
   }
 }

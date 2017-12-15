@@ -24,8 +24,9 @@ object QuantileDiscretizer {
       (0,1),
       (0,1),
       (0,1),
-      (0,2),
-      (0,3)
+      (0,1),
+      (0,1),
+      (0,2)
     )
     val df = spark.createDataFrame(data3).toDF("id", "hour")
 
