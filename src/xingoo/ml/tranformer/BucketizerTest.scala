@@ -11,7 +11,7 @@ object BucketizerTest {
 //    val splits = Array(Double.NegativeInfinity, -0.5, 0.0, 0.5, Double.PositiveInfinity)
 //    val splits1= Array(-0.5, 0.0, 0.5)
     val splits2 = Array(Double.NegativeInfinity,15,20,25,30,35,40,45,50,55,60,Double.PositiveInfinity)
-
+// [-inf,15) [15,20)
 //    val data = Array(-999.9, -0.5, -0.3, 0.0, 0.2, 999.9)
     val data1 = Array(10.0,15.0,33.0,40.0)
     val dataFrame = spark.createDataFrame(data1.map(Tuple1.apply)).toDF("features")

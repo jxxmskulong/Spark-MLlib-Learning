@@ -10,7 +10,7 @@ object NormalizerTest {
     spark.sparkContext.setLogLevel("WARN")
 
     val dataFrame = spark.createDataFrame(Seq(
-      (0, Vectors.dense(1.0, 0.5, -1.0)),
+      (0, Vectors.dense(1.0, 2, 3)),
       (1, Vectors.dense(2.0, 1.0, 1.0)),
       (2, Vectors.dense(4.0, 10.0, 2.0))
     )).toDF("id", "features")
@@ -23,11 +23,11 @@ object NormalizerTest {
 
     val l1NormData = normalizer.transform(dataFrame)
     println("Normalized using L^1 norm")
-    l1NormData.show()
+    l1NormData.show(false)
 
     // Normalize each Vector using $L^\infty$ norm.
     val lInfNormData = normalizer.transform(dataFrame, normalizer.p -> Double.PositiveInfinity)
     println("Normalized using L^inf norm")
-    lInfNormData.show()
+    lInfNormData.show(false)
   }
 }

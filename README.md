@@ -11,3 +11,6 @@ https://github.com/xinghalo/Spark-MLlib-Learning/tree/master/src/xingoo/ml/tranf
 
 ## 特征选择
 
+https://github.com/xinghalo/Spark-MLlib-Learning/tree/master/src/xingoo/ml/selector
+
+

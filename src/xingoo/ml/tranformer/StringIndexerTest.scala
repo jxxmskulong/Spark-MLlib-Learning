@@ -19,7 +19,7 @@ object StringIndexerTest {
     val indexer = new StringIndexer()
       .setInputCol("category")
       .setOutputCol("categoryIndex")
-      .setHandleInvalid("skip") //skip keep error
+      .setHandleInvalid("error") //skip keep error
 
     val model = indexer.fit(df)
 

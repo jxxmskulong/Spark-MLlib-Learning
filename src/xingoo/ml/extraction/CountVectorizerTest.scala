@@ -17,9 +17,9 @@ object CountVectorizerTest {
     val cvModel: CountVectorizerModel = new CountVectorizer()
       .setInputCol("words")
       .setOutputCol("features")
-      .setVocabSize(3)//向量的维度
+      .setVocabSize(5)//向量的维度
       .setMinDF(1)//词语必须出现的文档数
-      .setBinary(false)//计数是否都为1
+      .setBinary(true)//计数是否都为1
       .fit(df)
 
     // alternatively, define CountVectorizerModel with a-priori vocabulary

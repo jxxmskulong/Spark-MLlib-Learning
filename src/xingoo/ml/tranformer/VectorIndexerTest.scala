@@ -15,7 +15,7 @@ object VectorIndexerTest {
     val indexer = new VectorIndexer()
       .setInputCol("features")
       .setOutputCol("indexed")
-      .setMaxCategories(4)
+      .setMaxCategories(2)
 
     val indexerModel = indexer.fit(data)
 

@@ -28,6 +28,7 @@ object IndexToStringTest {
       .setInputCol("category")
       .setOutputCol("categoryIndex")
       .fit(df)
+      .setHandleInvalid("skip")
     val indexed = indexer.transform(df)
 
     println(s"Transformed string column '${indexer.getInputCol}' " +
